@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     
     var flipCount = 0 {
         didSet {
-            flipCountLabel.text = "Flips  \(flipCount)"
+            flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
+    
+    var emoji = [Int: String]()
     
     lazy var game =  Concentration(numberOfPairsOfCards: (cardButtons.count + 1)/2)
     
@@ -30,7 +32,6 @@ class ViewController: UIViewController {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         }
-        
     }
     
     func updateViewFromModel() {
@@ -49,7 +50,12 @@ class ViewController: UIViewController {
     }
     
     func emoji(for card: Card) -> String {
-        return "?"
+        if emoji[card.id] == nil, emojiChoices.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            emoji[card.id] = emojiChoices.remove(at: randomIndex)
+        }
+        
+        return emoji[card.id] ?? "?"
     }
     
     override func viewDidLoad() {

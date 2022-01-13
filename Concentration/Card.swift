@@ -22,7 +22,7 @@ struct Card {
     }
     
     init() {
-        self.id = Card.idFactory
+        self.id = Card.getUniqueId()
     }
     
 }
