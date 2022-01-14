@@ -18,9 +18,27 @@ class ViewController: UIViewController {
     
     var emoji = [Int: String]()
     
+    var indexTheme = 0 {
+        didSet {
+            emojiChoices = emojiThemes[keys [indexTheme]] ?? []
+            emoji = [Int: String]()
+        }
+    }
+    
+    var keys: [String] {
+        return Array(emojiThemes.keys)
+    }
+    
+    private var emojiThemes: [String: [String]] = [
+        "plants" : ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"],
+        "fruits" : ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"],
+        "sport" : ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"],
+        "haloween" : ["😈", "👻", "😱", "🎃", "💀", "🕸", "🕷", "🐲", "🎭"]
+    ]
+    
     lazy var game =  Concentration(numberOfPairsOfCards: (cardButtons.count + 1)/2)
     
-    var emojiChoices = ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"]
+    var emojiChoices: [String] = []
     
     
     @IBOutlet weak var flipCountLabel: UILabel!
@@ -37,8 +55,10 @@ class ViewController: UIViewController {
     
     @IBAction func newGameEvent(_ sender: Any) {
         game.resetGame()
+        indexTheme = keys.count.arc4random
         updateViewFromModel()
         flipCount = 0
+        
     }
     
     func updateViewFromModel() {
@@ -67,6 +87,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indexTheme = keys.count.arc4random
+        updateViewFromModel()
+        
     }
 }
 
