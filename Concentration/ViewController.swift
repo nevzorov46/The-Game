@@ -34,6 +34,13 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func newGameEvent(_ sender: Any) {
+        game.resetGame()
+        updateViewFromModel()
+        flipCount = 0
+    }
+    
     func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
@@ -61,7 +68,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }
+
+
 
 

@@ -15,6 +15,7 @@
 		35B4D7EB2768DB2F00DF9E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B4D7E92768DB2F00DF9E7C /* LaunchScreen.storyboard */; };
 		35B4D7F42769FFBA00DF9E7C /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4D7F32769FFBA00DF9E7C /* Concentration.swift */; };
 		35B4D7F6276A007F00DF9E7C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4D7F5276A007F00DF9E7C /* Card.swift */; };
+		35C7346927907E540003F2EE /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C7346827907E540003F2EE /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		35B4D7EC2768DB2F00DF9E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35B4D7F32769FFBA00DF9E7C /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		35B4D7F5276A007F00DF9E7C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		35C7346827907E540003F2EE /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		35B4D7F22768DBD300DF9E7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				35C7346827907E540003F2EE /* Tools.swift */,
 				35B4D7DE2768DB2900DF9E7C /* AppDelegate.swift */,
 				35B4D7E72768DB2F00DF9E7C /* Assets.xcassets */,
 				35B4D7E92768DB2F00DF9E7C /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				35B4D7E32768DB2900DF9E7C /* ViewController.swift in Sources */,
 				35B4D7F42769FFBA00DF9E7C /* Concentration.swift in Sources */,
 				35B4D7F6276A007F00DF9E7C /* Card.swift in Sources */,
+				35C7346927907E540003F2EE /* Tools.swift in Sources */,
 				35B4D7DF2768DB2900DF9E7C /* AppDelegate.swift in Sources */,
 				35B4D7E12768DB2900DF9E7C /* SceneDelegate.swift in Sources */,
 			);

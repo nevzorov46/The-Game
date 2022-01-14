@@ -191,7 +191,7 @@
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="newGameEvent" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ekh-2X-1zh"/>
+                                    <action selector="newGameEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06J-SA-U4y"/>
                                 </connections>
                             </button>
                         </subviews>
