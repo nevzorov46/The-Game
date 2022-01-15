@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxp-vY-88Z">
-                                <rect key="frame" x="159.66666666666666" y="752.66666666666663" width="71" height="27.333333333333371"/>
+                                <rect key="frame" x="159.66666666666666" y="742.66666666666663" width="71" height="27.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -184,7 +184,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud3-Bc-Qie">
-                                <rect key="frame" x="125.66666666666669" y="675.66666666666663" width="139" height="47"/>
+                                <rect key="frame" x="125.66666666666669" y="665.66666666666663" width="139" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="New Game">
@@ -194,18 +194,27 @@
                                     <action selector="newGameEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="06J-SA-U4y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6w-Xj-9dI">
+                                <rect key="frame" x="158" y="773" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="t6w-Xj-9dI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Q2-Ot-474"/>
+                            <constraint firstAttribute="bottom" secondItem="t6w-Xj-9dI" secondAttribute="bottom" constant="50" id="9q9-GB-NSG"/>
                             <constraint firstItem="ud3-Bc-Qie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QWv-gb-AvY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bxp-vY-88Z" secondAttribute="bottom" constant="30" id="gAy-3l-8wF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bxp-vY-88Z" secondAttribute="bottom" constant="40" id="gAy-3l-8wF"/>
                             <constraint firstItem="Bxp-vY-88Z" firstAttribute="top" secondItem="ud3-Bc-Qie" secondAttribute="bottom" constant="30" id="kXA-wZ-8yp"/>
                             <constraint firstItem="Bxp-vY-88Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wjo-HU-ajq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="Bxp-vY-88Z" id="NFG-kd-aGW"/>
+                        <outlet property="scoreLabel" destination="t6w-Xj-9dI" id="PEg-Nu-3bg"/>
                         <outletCollection property="cardButtons" destination="Gey-0G-20d" collectionClass="NSMutableArray" id="4oV-8z-YaI"/>
                         <outletCollection property="cardButtons" destination="sJH-ee-PRJ" collectionClass="NSMutableArray" id="79p-vQ-hwF"/>
                         <outletCollection property="cardButtons" destination="Bsl-A5-ht3" collectionClass="NSMutableArray" id="VTv-dh-rKx"/>

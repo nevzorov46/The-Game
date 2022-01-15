@@ -9,13 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    var flipCount = 0 {
-        didSet {
-            flipCountLabel.text = "Flips: \(flipCount)"
-        }
-    }
-    
     var emoji = [Int: String]()
     
     var indexTheme = 0 {
@@ -41,11 +34,12 @@ class ViewController: UIViewController {
     var emojiChoices: [String] = []
     
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        flipCount += 1
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
@@ -56,9 +50,9 @@ class ViewController: UIViewController {
     @IBAction func newGameEvent(_ sender: Any) {
         game.resetGame()
         indexTheme = keys.count.arc4random
+        game.score = 0
+        game.flipCount = 0
         updateViewFromModel()
-        flipCount = 0
-        
     }
     
     func updateViewFromModel() {
@@ -73,6 +67,9 @@ class ViewController: UIViewController {
                 button.setTitle("", for: .normal)
                 button.backgroundColor = card.isMatched ? .clear : .systemPurple
             }
+            
+            scoreLabel.text = "Score: \(game.score)"
+            flipCountLabel.text = "Flips: \(game.flipCount)"
         }
     }
     

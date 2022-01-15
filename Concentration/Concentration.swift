@@ -10,6 +10,8 @@ import Foundation
 class Concentration {
     
     var cards = [Card]()
+    var score = 0
+    var flipCount = 0
     
     var indexOfOneAndOnlyFaceUpCard: Int?
     
@@ -19,6 +21,9 @@ class Concentration {
                 if cards[matchIndex].id == cards[index].id {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score += 2
+                } else {
+                    score -= 1
                 }
                 cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = nil
@@ -30,6 +35,7 @@ class Concentration {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+        flipCount += 1
     }
     
     func resetGame() {
