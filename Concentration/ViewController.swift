@@ -13,21 +13,25 @@ class ViewController: UIViewController {
     
     var indexTheme = 0 {
         didSet {
-            emojiChoices = emojiThemes[keys [indexTheme]] ?? []
+            emojiChoices = emojiThemes[indexTheme].emoji
+            backgroundColor = emojiThemes[indexTheme].viewColor
+            cardColor = emojiThemes[indexTheme].cardColor
             emoji = [Int: String]()
         }
+        
     }
     
-    var keys: [String] {
-        return Array(emojiThemes.keys)
-    }
+    var backgroundColor = UIColor.gray
+    var cardColor = UIColor.systemPurple
     
-    private var emojiThemes: [String: [String]] = [
-        "plants" : ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"],
-        "fruits" : ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"],
-        "sport" : ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"],
-        "haloween" : ["😈", "👻", "😱", "🎃", "💀", "🕸", "🕷", "🐲", "🎭"]
+    
+    private var emojiThemes = [
+        Theme(name: "plants", emoji: ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"], viewColor: UIColor(red: 117/255, green: 249/255, blue: 150/255, alpha: 0.98), cardColor: UIColor(red: 250/255, green: 179/255, blue: 99/255, alpha: 0.98)),
+        Theme(name: "fruits", emoji: ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"], viewColor: .yellow, cardColor: .brown),
+        Theme(name: "sport", emoji: ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"], viewColor: .blue, cardColor: .white),
+        Theme(name: "haloween", emoji: ["😈", "👻", "😱", "🎃", "💀", "🕸", "🕷", "🐲", "🎭"], viewColor: .orange, cardColor: .black)
     ]
+
     
     lazy var game =  Concentration(numberOfPairsOfCards: (cardButtons.count + 1)/2)
     
@@ -49,11 +53,13 @@ class ViewController: UIViewController {
     
     @IBAction func newGameEvent(_ sender: Any) {
         game.resetGame()
-        indexTheme = keys.count.arc4random
+        indexTheme = emojiThemes.count.arc4random
         game.score = 0
         game.flipCount = 0
+        view.backgroundColor = backgroundColor
         updateViewFromModel()
     }
+    
     
     func updateViewFromModel() {
         for index in cardButtons.indices {
@@ -65,7 +71,7 @@ class ViewController: UIViewController {
                 button.backgroundColor = .white
             } else {
                 button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatched ? .clear : .systemPurple
+                button.backgroundColor = card.isMatched ? .clear : cardColor
             }
             
             scoreLabel.text = "Score: \(game.score)"
@@ -84,7 +90,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indexTheme = keys.count.arc4random
+        indexTheme = emojiThemes.count.arc4random
+        view.backgroundColor = backgroundColor
         updateViewFromModel()
         
     }
