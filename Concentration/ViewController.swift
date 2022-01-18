@@ -26,24 +26,24 @@ class ViewController: UIViewController {
     
     
     private var emojiThemes = [
-        Theme(name: "plants", emoji: ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"], viewColor: UIColor(red: 117/255, green: 249/255, blue: 150/255, alpha: 0.98), cardColor: UIColor(red: 250/255, green: 179/255, blue: 99/255, alpha: 0.98)),
-        Theme(name: "fruits", emoji: ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"], viewColor: .yellow, cardColor: .brown),
-        Theme(name: "sport", emoji: ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"], viewColor: .blue, cardColor: .white),
+    Theme(name: "plants", emoji: ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"], viewColor: UIColor(red: 117/255, green: 249/255, blue: 150/255, alpha: 0.98), cardColor: UIColor(red: 250/255, green: 179/255, blue: 99/255, alpha: 0.98)),
+    Theme(name: "fruits", emoji: ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"], viewColor: .yellow, cardColor: .brown),
+        Theme(name: "sport", emoji: ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"], viewColor: .blue, cardColor: .gray),
         Theme(name: "haloween", emoji: ["😈", "👻", "😱", "🎃", "💀", "🕸", "🕷", "🐲", "🎭"], viewColor: .orange, cardColor: .black)
     ]
 
     
-    lazy var game =  Concentration(numberOfPairsOfCards: (cardButtons.count + 1)/2)
+    private lazy var game =  Concentration(numberOfPairsOfCards: (cardButtons.count + 1)/2)
     
-    var emojiChoices: [String] = []
+    private var emojiChoices: [String] = []
     
     
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
     
-    @IBOutlet weak var flipCountLabel: UILabel!
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet private var cardButtons: [UIButton]!
     
-    @IBAction func touchCard(_ sender: UIButton) {
+    @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func newGameEvent(_ sender: Any) {
+    @IBAction private func newGameEvent(_ sender: Any) {
         game.resetGame()
         indexTheme = emojiThemes.count.arc4random
         game.score = 0
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     }
     
     
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         if emoji[card.id] == nil, emojiChoices.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             emoji[card.id] = emojiChoices.remove(at: randomIndex)
