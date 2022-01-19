@@ -18,7 +18,6 @@ class ViewController: UIViewController {
             cardColor = emojiThemes[indexTheme].cardColor
             emoji = [Int: String]()
         }
-        
     }
     
     var backgroundColor = UIColor.gray
@@ -27,7 +26,7 @@ class ViewController: UIViewController {
     
     private var emojiThemes = [
     Theme(name: "plants", emoji: ["🌳", "🎄", "🦚", "🌵", "☘️", "🍁", "🌷", "🌾", "🌻"], viewColor: UIColor(red: 117/255, green: 249/255, blue: 150/255, alpha: 0.98), cardColor: UIColor(red: 250/255, green: 179/255, blue: 99/255, alpha: 0.98)),
-    Theme(name: "fruits", emoji: ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"], viewColor: .yellow, cardColor: .brown),
+    Theme(name: "fruits", emoji: ["🍏", "🍎", "🍐", "🍋", "🍊", "🍌", "🍑", "🥭", "🍓"], viewColor: .cyan, cardColor: .purple),
         Theme(name: "sport", emoji: ["🏀", "⚽️", "🏈", "⚾️", "🥎", "🏐", "🏒", "🎱", "⛸"], viewColor: .blue, cardColor: .gray),
         Theme(name: "haloween", emoji: ["😈", "👻", "😱", "🎃", "💀", "🕸", "🕷", "🐲", "🎭"], viewColor: .orange, cardColor: .black)
     ]
@@ -81,7 +80,7 @@ class ViewController: UIViewController {
     
     private func emoji(for card: Card) -> String {
         if emoji[card.id] == nil, emojiChoices.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            let randomIndex = emojiChoices.count.arc4random
             emoji[card.id] = emojiChoices.remove(at: randomIndex)
         }
         

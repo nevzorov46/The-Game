@@ -65,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				35B4D7F22768DBD300DF9E7C /* Supporting Files */,
-				35B4D7E02768DB2900DF9E7C /* SceneDelegate.swift */,
 				35B4D7E22768DB2900DF9E7C /* ViewController.swift */,
 				35B4D7F32769FFBA00DF9E7C /* Concentration.swift */,
 				35B4D7F5276A007F00DF9E7C /* Card.swift */,
@@ -83,6 +82,7 @@
 				35B4D7DE2768DB2900DF9E7C /* AppDelegate.swift */,
 				35B4D7E72768DB2F00DF9E7C /* Assets.xcassets */,
 				35B4D7E92768DB2F00DF9E7C /* LaunchScreen.storyboard */,
+				35B4D7E02768DB2900DF9E7C /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
