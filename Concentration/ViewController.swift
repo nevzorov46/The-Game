@@ -9,16 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var emoji = [Int: String]()
+    private var emoji = [Card: String]()
     
     var indexTheme = 0 {
         didSet {
             emojiChoices = emojiThemes[indexTheme].emoji
             backgroundColor = emojiThemes[indexTheme].viewColor
             cardColor = emojiThemes[indexTheme].cardColor
-            emoji = [Int: String]()
+            emoji = [Card: String]()
         }
     }
+    
     
     var backgroundColor = UIColor.gray
     var cardColor = UIColor.systemPurple
@@ -79,12 +80,12 @@ class ViewController: UIViewController {
     }
     
     private func emoji(for card: Card) -> String {
-        if emoji[card.id] == nil, emojiChoices.count > 0 {
+        if emoji[card] == nil, emojiChoices.count > 0 {
             let randomIndex = emojiChoices.count.arc4random
-            emoji[card.id] = emojiChoices.remove(at: randomIndex)
+            emoji[card] = emojiChoices.remove(at: randomIndex)
         }
         
-        return emoji[card.id] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     override func viewDidLoad() {
@@ -95,7 +96,6 @@ class ViewController: UIViewController {
         
     }
 }
-
 
 
 
