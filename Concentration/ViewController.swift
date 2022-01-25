@@ -37,9 +37,12 @@ class ViewController: UIViewController {
     
     private var emojiChoices: [String] = []
     
+    let attributes: [NSAttributedString.Key: Any] = [
+        .strokeWidth: 5.0,
+        .strokeColor: UIColor.white
+    ]
     
     @IBOutlet private weak var scoreLabel: UILabel!
-    
     @IBOutlet private weak var flipCountLabel: UILabel!
     @IBOutlet private var cardButtons: [UIButton]!
     
@@ -74,8 +77,10 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? .clear : cardColor
             }
             
+            let attributedString = NSAttributedString(string: "Flips: \(game.flipCount)", attributes: attributes)
+            
             scoreLabel.text = "Score: \(game.score)"
-            flipCountLabel.text = "Flips: \(game.flipCount)"
+            flipCountLabel.attributedText = attributedString
         }
     }
     
